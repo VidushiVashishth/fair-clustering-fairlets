@@ -11,7 +11,7 @@
 		"fair_column" : "gender",
 		"fair_values" : ["Male", "Female"],
 		"distance_columns" : ["age", "fnlwgt", "education_num", "capital_gain", "hours_per_week"],
-		"split_size" : [400, 200],
+		"split_size" : [182, 318],
 		"random_state" : 42,
 		"distance_threshold" : 225000
 	},

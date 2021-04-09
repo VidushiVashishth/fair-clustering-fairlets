@@ -21,8 +21,9 @@ def run_experiments(degrees, data, fairlets, fairlet_centers, verbose=True):
 	curr_degrees = []
 	curr_costs = []
 	curr_balances = []
-
-	for degree in range(3, min(degrees+1, len(fairlet_centers)), 1):
+	final_final_cluster = []
+	final_center = []
+	for degree in range(1, min(degrees+1, len(fairlet_centers)), 1):
 		start_time = time.time()
 		
 		kcenters = KCenters(k=degree)
@@ -38,8 +39,10 @@ def run_experiments(degrees, data, fairlets, fairlet_centers, verbose=True):
 		curr_degrees.append(degree)
 		curr_costs.append(max([min([distance(data[j], i) for j in centers]) for i in data]))
 		curr_balances.append(balance_calculation(data, centers, final_clusters))
-		
+		final_final_cluster = final_clusters
+		final_center=centers
+
 		if verbose:
 			print("Time taken for Degree %d - %.3f seconds."%(degree, time.time() - start_time))
 
-	return curr_degrees, curr_costs, curr_balances
+	return curr_degrees, curr_costs, curr_balances, final_final_cluster, final_center

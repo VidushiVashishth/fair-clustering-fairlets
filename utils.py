@@ -47,6 +47,13 @@ def balance_calculation(data, centers, mapping):
 
 	return min(curr_b)
 
+def ourFairness(data, centers, mapping):
+	print("debugging my function")
+	print(data)
+	print(mapping)
+	print(centers)
+    
+
 def plot_analysis(degrees, costs, balances, step_size):
 	"""
 	Plots the curves for costs and balances.
